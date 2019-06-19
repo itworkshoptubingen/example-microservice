@@ -43,3 +43,16 @@ Open a terminal in the project folder and run `docker build --tag example-micros
 Then, run `docker run -p 3000:3000 example-microservice` to start it.
 
 You can terminate the microservice by pressing `ctrl+C`.
+
+# Running the Microservice through Docker Swarm
+
+Make sure your Docker swarm cluster is initialised by running `docker info --format '{{.Swarm.LocalNodeState}}'`.
+If it is not, run `docker swarm init` to create a swarm.
+
+Open a terminal in the project folder and run `docker build --tag example-microservice` or `docker-compose build` (if you have `docker-compose` installed) to build the Docker image, if you have not already done so.
+
+Then, run `docker stack deploy --compose-file docker-compose.yml microservice` to start the microservice.
+
+Cou can inspect the microservice's logs by running `docker service logs microservice_example`.
+
+To stop the microservice, run `docker service rm microservice_example`
