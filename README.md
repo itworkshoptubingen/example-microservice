@@ -26,11 +26,20 @@ Calculates `a * b`.
 ## `GET /divide?a=<number>&b=<number>`
 Calculates `a / b`.
 
-# Running the Microservice
+# Running the Microservice Directly
 
 First, you need to have `node` and `npm` installed.
 
 Open a terminal in the project folder and run `npm install` to download and install all dependencies of the microservice.
 Then, run `npm start` to start it.
+
+You can terminate the microservice by pressing `ctrl+C`.
+
+# Running the Microservice through Docker
+
+Make sure you have `docker` installed.
+
+Open a terminal in the project folder and run `docker build --tag example-microservice`.
+Then, run `docker run -p 3000:3000 example-microservice` to start it.
 
 You can terminate the microservice by pressing `ctrl+C`.
