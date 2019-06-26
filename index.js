@@ -3,11 +3,17 @@
 const Koa = require('koa')
 const Router = require('koa-router')
 const logger = require('koa-logger')
+const cors = require('@koa/cors')
 
 const PORT = process.env.PORT || 3000
 
 const app = new Koa()
+app.use(cors({ origin: '*' }))
 app.use(logger())
+app.use(async (ctx, next) => {
+  ctx.set('Access-Control-Allow-Origin', '*')
+  await next()
+})
 
 const router = new Router()
 
